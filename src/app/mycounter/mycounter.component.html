@@ -1,0 +1,31 @@
+<div *ngIf="adding==true">
+  <form [formGroup]="studentForm" (ngSubmit)="increment()">
+    <label for="name">Name : </label>
+    <input type="text" formControlName="name" placeholder="enter name" name="name" id="name">
+    <br><br>
+    <label for="age">Age : </label>
+    <input type="text" formControlName="age" placeholder="enter age" name="age" id="age">
+    <br><br>
+    <label for="id">Id : </label>
+    <input type="text" formControlName="id" placeholder="enter id" name="id" id="id">
+    <br><br>
+    <label for="marks">Marks : </label>
+    <input type="text" formControlName="marks" placeholder="enter marks" name="marks" id="marks">
+    <br><br><button type="submit">Increment</button>
+  </form>
+</div><br>
+<div *ngIf="deleting==true">
+  <form [formGroup]="idForm" (ngSubmit)="decrement(reqid)">
+    <label for="id" >Id : </label>
+    <input type="text" name="id" formControlName="id" placeholder="enter id">
+    <br><br><button type="submit">Decrement</button>
+  </form>
+
+</div>
+<ul>
+  <li *ngFor="let std of (students$ | async).students">
+    {{std.name}}
+  </li>
+</ul>
+
+
